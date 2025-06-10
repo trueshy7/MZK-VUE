@@ -34,9 +34,9 @@
             </el-icon>
             <span @click="favoriteshow">音乐收藏管理</span>
           </el-menu-item>
-          <el-menu-item index="4">
+          <el-menu-item index="5">
             <el-icon>
-              <setting/>
+              <user/>
             </el-icon>
             <span @click="likedshow">音乐点赞管理</span>
           </el-menu-item>

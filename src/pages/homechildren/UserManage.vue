@@ -8,27 +8,28 @@
     </div>
     <div class="tableshow">
       <el-table :data="tableData" style="width: 100%" max-height="250">
-        <el-table-column prop="username" label="用户名" width="180"/>
-        <el-table-column prop="email" label="邮箱" width="180"/>
+        <el-table-column prop="userId" label="key" width="60"/>
+        <el-table-column prop="username" label="用户名" width="120"/>
+        <el-table-column prop="email" label="邮箱" width="120"/>
         <el-table-column prop="age" label="年龄" width="90"/>
-        <el-table-column prop="gender" label="性别" width="90S"/>
+        <el-table-column prop="gender" label="性别" width="90"/>
         <el-table-column prop="status" label="用户状态" width="90"/>
-        <el-table-column prop="create_time" label="注册时间" width="160"/>
-        <el-table-column prop="last_login" label="最近登录时间" width="160"/>
+        <el-table-column prop="createTime" label="注册时间" width="160"/>
+        <el-table-column prop="lastLogin" label="最近登录时间" width="160"/>
         <el-table-column fixed="right" label="操作" min-width="60">
           <template #default="scope">
             <el-button
                 plain
                 type="primary"
                 size="small"
-                @click="deleteRow(scope.row.id)"
+                @click="deleteRow(scope.row.userId)"
             >
               删除
             </el-button>
             <el-button
                 type="primary"
                 size="small"
-                @click="updateRow(scope.row.id)"
+                @click="updateRow(scope.row.userId)"
             >
               编辑
             </el-button>
@@ -86,7 +87,7 @@ export default {
       new_email: "",
       new_age: "",
       new_password: "",
-      id: "",
+      userId: "",
     }
   },
   methods: {
@@ -101,7 +102,8 @@ export default {
         console.log(this.tableData);
       })
     },
-    deleteRow(id) {
+    deleteRow(userId) {
+
       ElMessageBox.confirm(
           '你确定你要删除吗,此操作不可撤销?',
           'Warning',
@@ -112,12 +114,12 @@ export default {
           }
       )
           .then(() => {
-            this.$axios.delete("/user/delete?id=" + id);
+            this.$axios.delete("/user/delete?id=" + userId);
+            console.log(userId);
             ElMessage({
               type: 'success',
               message: '删除成功',
             })
-            this.getUserList();
           })
           .catch(() => {
             ElMessage({
@@ -125,6 +127,7 @@ export default {
               message: '您取消了删除',
             })
           })
+      this.getUserList();
     },
     onAddItem() {
       this.title = "添加用户";
