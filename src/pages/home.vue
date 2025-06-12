@@ -119,7 +119,7 @@ h2{
   flex-direction: column;
   position: relative;
   height: 100%;
-  width: 10%;
+  width: 11%;
   align-items: center;
   background-color: #4f3232; /* 深蓝色，可替换为你想要的颜色 */
   color: white; /* 设置字体颜色为白色更易读 */
