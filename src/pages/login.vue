@@ -1,14 +1,15 @@
 <template>
   <div class="login-page">
-    <el-card class="box-card" shadow="hover">
-      <h2>{{ isLogin ? '登录' : '注册' }}</h2>
+    <el-card class="box-cad">
+      <h1 class="title">喵ZK音乐管理系统</h1>
       <el-form :model="form" :rules="rules" ref="formRef" label-width="80px">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="form.username" placeholder="请输入用户名"/>
         </el-form-item>
 
-        <el-form-item label="密码" prop="password">
-          <el-input v-model="form.password" type="password" placeholder="请输入密码"/>
+        <el-form-item label="密码" prop="password" >
+          <el-input v-model="form.password" type="password" placeholder="请输入密码">
+          </el-input>
         </el-form-item>
 
         <el-form-item v-if="!isLogin" label="确认密码" prop="confirmPassword">
@@ -85,12 +86,23 @@ export default {
 
 <style scoped>
 .login-page {
-  width: 400px;
+  width: 40%;
+  height: 40%;
   margin: 100px auto;
+  background-color: rgba(255, 255, 255, 0.3); /* 半透明白色背景 */
+  border-radius: 10px; /* 可选：圆角 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 可选：阴影提升可视性 */
+  padding: 20px; /* 内边距以避免内容贴边 */
 }
 
-.box-card {
-  padding: 20px;
-  border-radius: 12px;
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+el-form-item{
+  flex-direction: row;
+  justify-items:center;
+  align-items: center;
 }
 </style>

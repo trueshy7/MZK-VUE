@@ -3,11 +3,14 @@
     <el-header class="header">喵ZK音乐管理系统</el-header>
     <el-container class="content">
       <el-aside class="aside">
+        <h2>工作台</h2>
         <el-menu
-            default-active="2"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
+            background-color="#4f3232"
+            text-color="#ffffff"
+            active-text-color="#409EFF"
         >
           <el-menu-item index="1">
             <el-icon>
@@ -86,15 +89,23 @@ export default {
   width: 100%;
   height: 100%;
 }
-
+h2{
+  text-align: center;
+  color: whitesmoke;
+}
 .header {
   display: flex;
   position: relative;
   justify-content: center;
-  justify-content: center;
   width: 100%;
   height: 15%;
   margin-bottom: 20px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 60px; /* 设置高度时配合垂直居中 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .content {
@@ -104,9 +115,14 @@ export default {
 }
 
 .aside {
+  display: flex;
+  flex-direction: column;
   position: relative;
   height: 100%;
   width: 10%;
+  align-items: center;
+  background-color: #4f3232; /* 深蓝色，可替换为你想要的颜色 */
+  color: white; /* 设置字体颜色为白色更易读 */
 }
 
 .main {
